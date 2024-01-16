@@ -9,27 +9,27 @@
   
   
       <h2>Login</h2>
+
+      @if(session()->has('success'))
+        {{ session()->get('success')}}
+      @endif
+
+
+
+     
       
-  
-  
-      @error('error')
-          <span>{{ $message }}</span>
-      @enderror
-  
-      <!-- Login form -->
-      <form action="/login" method="post">
+      <form action={'/login'} method="post">
         @csrf
         
   
-        <!-- Email input -->
+
         <div class="form-group">
-          <input type="text" name="email" class="form-control" value='' placeholder="Email">
+          <input type="text" name="email" class="form-control" value="" placeholder="Email">
           @error('email')
           <span>{{ $message}}</span>
           @enderror
         </div>
-  
-        <!-- Password input -->
+
         <div class="form-group">
           <input type="password" name="password" class="form-control" value="" placeholder="Senha">
           @error('password')
@@ -37,10 +37,9 @@
           @enderror
         </div>
   
-        <!-- Login button -->
+    
         <button type="submit" class="btn btn-primary">Login</button>
-  
-        <!-- Cadastre-se button -->
+
         <button type="button" class="btn btn-primary">
           <a href="/cadastro" style="color: white; text-decoration: none;">Cadastre-se</a>
       </button>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\CadastroUsers;
 
 class CadastroController extends Controller
 {
@@ -11,7 +12,7 @@ class CadastroController extends Controller
      */
     public function index()
     {
-        return view('cadastro');
+        return view('novoCadastro');
     }
 
     /**
@@ -19,7 +20,7 @@ class CadastroController extends Controller
      */
     public function create()
     {
-        //
+        return view('novoCadastro');
     }
 
     /**
@@ -27,7 +28,25 @@ class CadastroController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $request->validate([
+            'name' => 'required',
+            'lastName' => 'required',
+            'email' => 'required',
+            'password' => 'required',
+        ], [
+            'name.required' => 'Este campo é obrigatório',
+            'lastName.required' => 'Este campo é obrigatório',
+            'email.required' => 'Este campo é obrigatório',
+            'password.required' => 'Este campo é obrigatório',
+        ]);
+        $cat = new CadastroUsers();
+        $cat->name = $request->name;
+        $cat->lastName= $request->lastName;
+        $cat->email = $request->email;
+        $cat->password = $request->password;
+        $cat->save();
+        return redirect('/login');
     }
 
     /**

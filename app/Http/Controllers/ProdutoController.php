@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Produto;
 
 class ProdutoController extends Controller
 {
@@ -11,7 +12,8 @@ class ProdutoController extends Controller
      */
     public function index()
     {
-        return view('produtos');
+        $produto = Produto::all();
+        return view('produtos', compact('produto'));
     }
 
     /**
@@ -19,7 +21,7 @@ class ProdutoController extends Controller
      */
     public function create()
     {
-        //
+        return view('novoProduto');
     }
 
     /**
@@ -27,7 +29,24 @@ class ProdutoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $request->validate([
+            'name' => 'required',
+            'description' => 'required',
+            'price' => 'required',
+        ], [
+            'name.required' => 'Este campo é obrigatório',
+            'description.required' => 'Este campo é obrigatório',
+            'price.required' => 'Este campo é obrigatório',
+        ]);
+
+
+        $cat = new Produto();
+        $cat->name = $request->name;
+        $cat->description = $request->description;
+        $cat->price = $request->price;
+        $cat->save();
+        return redirect('/produtos');
     }
 
     /**
@@ -43,15 +62,33 @@ class ProdutoController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $cat = Produto::find($id);
+        if(isset($cat)){
+            return view('editaProduto', compact('cat'));
+        }
+
+        return redirect('/produtos');
+
+
     }
+
 
     /**
      * Update the specified resource in storage.
      */
     public function update(Request $request, string $id)
     {
-        //
+        $cat = Produto::find($id);
+        if(isset($cat)){
+            $cat->name = $request->input('name');
+            $cat->description = $request->input('description');
+            $cat->price = $request->input('price');
+            $cat->save();
+            
+        }
+
+        return redirect('/produtos');
+
     }
 
     /**
@@ -59,6 +96,10 @@ class ProdutoController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $cat = Produto::find($id);
+       if(isset($cat)){
+        $cat->delete();
+        return redirect('/produtos');
+       }
     }
 }

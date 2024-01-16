@@ -1,25 +1,25 @@
 @extends('welcome')
 
 @section('body')
-    <!-- Conteúdo da Página -->
+
     <div class="container text-center mt-5">
 
-        <!-- Seção de Login -->
+
         <section id="login" class="mb-5">
             <h2 class="text-primary">Login</h2>
-            <!-- Seu formulário de login aqui -->
+
             <form class="w-75 mx-auto">
                 <!-- Campos de login, e.g., email, senha -->
                 <a href="/login" class="btn btn-primary btn-lg">Entrar</a>
             </form>
         </section>
 
-        <!-- Seção de Cadastro -->
+      
         <section id="cadastro">
             <h2 class="text-success">Cadastro</h2>
-            <!-- Seu formulário de cadastro aqui -->
+  
             <form class="w-75 mx-auto">
-                <!-- Campos de cadastro, e.g., nome, sobrenome, email, senha -->
+      
                 <a href="/cadastro" class="btn btn-success btn-lg">Cadastrar</a>
             </form>
         </section>
