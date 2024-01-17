@@ -19,6 +19,10 @@ Route::get('/produtos/apagar/{id}', 'App\Http\Controllers\ProdutoController@dest
 Route::get('/produtos/editar/{id}', 'App\Http\Controllers\ProdutoController@edit');
 Route::post('/produtos/{id}', 'App\Http\Controllers\ProdutoController@update');
 
-Route::get('/login', 'App\Http\Controllers\LoginController@index')->name('login');
-Route::get('/login/novo', 'App\Http\Controllers\LoginController@create');
-Route::post('/login','App\Http\Controllers\LoginController@update');
+Route::get('/login/{erro?}', 'App\Http\Controllers\LoginController@index')->name('login');
+
+Route::post('/login', 'App\Http\Controllers\LoginController@autenticar')->name('login');
+
+
+//Route::get('/login/novo', 'App\Http\Controllers\LoginController@create');
+//Route::post('/login','App\Http\Controllers\LoginController@update');
