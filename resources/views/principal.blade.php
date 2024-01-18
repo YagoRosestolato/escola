@@ -2,23 +2,24 @@
 
 @section('body')
 
-    <div class="container mt-5 border rounded p-4">
+    <div class="container text-center mt-5">
+
         <section id="login" class="mb-5">
-            <h2 class="text-primary mb-4">Bem-vindo de volta!</h2>
+            <h2 class="text-primary mb-4">Login</h2>
 
             <form class="w-75 mx-auto">
-                <!-- Campos de login, e.g., email, senha -->
                 <a href="/login" class="btn btn-primary btn-lg">Entrar</a>
             </form>
         </section>
 
         <section id="cadastro">
-            <h2 class="text-success mb-4">Novo por aqui? Faça seu cadastro!</h2>
+            <h2 class="text-success mb-4">Cadastre-se</h2>
   
             <form class="w-75 mx-auto">
                 <a href="/cadastro" class="btn btn-success btn-lg">Cadastrar</a>
             </form>
         </section>
+
     </div>
 
     <!-- Scripts JavaScript do Bootstrap (popper.js e jQuery) -->

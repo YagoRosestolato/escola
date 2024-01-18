@@ -4,12 +4,11 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProdutoController;
 use App\Http\Controllers\CadastroController;
 
-Route::get('/', function () {
-    return view('index');
-});
+
+Route::get('/', 'App\Http\Controllers\PrincipalController@principal')->name('principal');
 
 Route::get('/cadastro', 'App\Http\Controllers\CadastroController@index');
-Route::get('/cadastro/novo', 'App\Http\Controllers\CadastroController@create');
+Route::get('/cadastro/novo', 'App\Http\Controllers\CadastroController@create')->name('cadastro');
 Route::post('/cadastro', 'App\Http\Controllers\CadastroController@store');
 
 Route::get('/produtos', 'App\Http\Controllers\ProdutoController@index');

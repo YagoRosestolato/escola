@@ -5,11 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\CadastroUsers;
 
+
 class CadastroController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+
     public function index()
     {
         return view('novoCadastro');
@@ -26,7 +25,7 @@ class CadastroController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+     public function store(Request $request)
     {
 
         $request->validate([
@@ -48,7 +47,6 @@ class CadastroController extends Controller
         $cat->save();
         return redirect('/login');
     }
-
     /**
      * Display the specified resource.
      */
