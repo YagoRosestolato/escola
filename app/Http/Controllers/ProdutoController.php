@@ -63,13 +63,11 @@ class ProdutoController extends Controller
     public function edit(string $id)
     {
         $cat = Produto::find($id);
-        if(isset($cat)){
+        if (isset($cat)) {
             return view('editaProduto', compact('cat'));
         }
 
         return redirect('/produtos');
-
-
     }
 
 
@@ -79,16 +77,14 @@ class ProdutoController extends Controller
     public function update(Request $request, string $id)
     {
         $cat = Produto::find($id);
-        if(isset($cat)){
+        if (isset($cat)) {
             $cat->name = $request->input('name');
             $cat->description = $request->input('description');
             $cat->price = $request->input('price');
             $cat->save();
-            
         }
 
         return redirect('/produtos');
-
     }
 
     /**
@@ -97,9 +93,9 @@ class ProdutoController extends Controller
     public function destroy(string $id)
     {
         $cat = Produto::find($id);
-       if(isset($cat)){
-        $cat->delete();
-        return redirect('/produtos');
-       }
+        if (isset($cat)) {
+            $cat->delete();
+            return redirect('/produtos');
+        }
     }
 }

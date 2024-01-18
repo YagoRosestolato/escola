@@ -25,7 +25,7 @@ class CadastroController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-     public function store(Request $request)
+    public function store(Request $request)
     {
 
         $request->validate([
@@ -41,7 +41,7 @@ class CadastroController extends Controller
         ]);
         $cat = new CadastroUsers();
         $cat->name = $request->name;
-        $cat->lastName= $request->lastName;
+        $cat->lastName = $request->lastName;
         $cat->email = $request->email;
         $cat->password = $request->password;
         $cat->save();
