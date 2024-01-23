@@ -7,6 +7,7 @@
             <table class="table table-bordered table-hover">
                 <thead class="thead-dark">
                     <tr>
+                        <th>ID</th>
                         <th>Nome</th>
                         <th>Descrição</th>
                         <th>Preço</th>

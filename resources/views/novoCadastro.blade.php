@@ -1,6 +1,5 @@
 @extends('welcome', ['current' => 'cadastro'])
 
-
 @section('body')
     <div style="display: flex; align-items: center; justify-content: center; height: 100vh; margin: 0;">
         <div style="text-align: center; border: 1px solid #ccc; border-radius: 10px; padding: 20px; max-width: 400px;">
@@ -28,16 +27,19 @@
                 </div>
                 <div class="form-group">
                     <input type="password" name="password" class="form-control" value="" placeholder="Senha">
-
-
                     @error('password')
                         <span>{{ $message }}</span>
                     @enderror
                 </div>
+                <div class="form-group">
+                    <label for="cargo">Cargo:</label>
+                    <select class="form-control" id="cargo" name="cargo">
+                        <option value="diretor">Diretor</option>
+                        <option value="fornecedor">Fornecedor</option>
+                    </select>
+                </div>
+                
                 <button type="submit" class="btn btn-primary">Cadastrar</button>
-
-
-                </button>
             </form>
         </div>
     </div>

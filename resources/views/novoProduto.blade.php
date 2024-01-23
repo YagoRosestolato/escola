@@ -4,7 +4,7 @@
 @section('body')
     <div>
         <h1>Criar novo produto</h1>
-        <form action="/produtos" method="post">
+        <form action="{{ url('/app/produtos') }}" method="post">
             @csrf
             <div class="form-group">
                 <input type="text" name="name" class="form-control" value="" placeholder="Nome">
@@ -24,7 +24,8 @@
                     <span>{{ $message }}</span>
                 @enderror
             </div>
-            <button type="submit" class="btn btn-primary">Cadastrar</button>
+            {{--  <button type="submit" class="btn btn-primary">Cadastrar</button>  --}}
+            <a href="/produtos" class="btn btn-primary">Listar Produtos</a>
             <a href="/produtos" class="btn btn-info">Listar Produtos</a>
         </form>
     </div>

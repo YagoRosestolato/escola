@@ -13,18 +13,23 @@ class LogAcessoMiddlweare
     /**
      * Handle an incoming request.
      *
-     * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
+     * @param  \Closure(\Illuminate\Http\Request)  $next
      */
-    public function handle(Request $request, Closure $next): Response
+    public function handle( $request, Closure $next): Response
     {
-        //return $next($request);
+
   
         
         $ip = $request->server->get('REMOTE_ADDR');
         $rota = $request->getRequestUri();
         LogAcesso::create(['Log' => "IP: $ip requisitou a rota $rota"]);
-        return $next($request);
-        // LogAcesso::create(['Log' => 'ip xyz requisitou a rota abcd']);
-        // return Response('Chegamos no middlaware');
+        //return $next($request);
+
+
+        $resposta = $next($request);
+        $resposta -> setStatusCode(201, 'O status da reposta e o texto da resposta foram modificados');
+
+        return $resposta;
+
     }
 }
