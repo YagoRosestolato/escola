@@ -10,19 +10,20 @@ Route::get('/cadastro', 'App\Http\Controllers\CadastroController@index');
 Route::get('/cadastro/novo', 'App\Http\Controllers\CadastroController@create')->name('cadastro');
 Route::post('/cadastro', 'App\Http\Controllers\CadastroController@store');
 
-
-
-
 Route::get('/produtos', 'App\Http\Controllers\ProdutoController@index');
 Route::get('/produtos/novo', 'App\Http\Controllers\ProdutoController@create');
 Route::post('/produtos', 'App\Http\Controllers\ProdutoController@store');
-Route::middleware('autenticacao:padrao, fornecedor')->get('/produtos/apagar/{id}', 'App\Http\Controllers\ProdutoController@destroy');
-Route::middleware('autenticacao:padraom, fornecedor')->get('/produtos/editar/{id}', 'App\Http\Controllers\ProdutoController@edit');
+Route::get('/produtos/apagar/{id}', 'App\Http\Controllers\ProdutoController@destroy');
+Route::get('/produtos/editar/{id}', 'App\Http\Controllers\ProdutoController@edit');
 Route::post('/produtos/{id}', 'App\Http\Controllers\ProdutoController@update');
 
 Route::get('/login/{erro?}', 'App\Http\Controllers\LoginController@index')->name('login');
-
 Route::post('/login', 'App\Http\Controllers\LoginController@autenticar')->name('login');
+
+
+Route::middleware('autenticacao:padrao, diretor')->get('/diretor', 'App\Http\Controllers\DiretorController@index')->name('app.diretor');
+Route::middleware('autenticacao:padrao, fornecedor')->get('/fornecedor', 'App\Http\Controllers\FornecedorController@index')->name('app.fornecedor');
+Route::middleware('autenticacao:padrao')->get('/sair', 'App\Http\Controllers\LoginController@logout')->name('app.sair');
 
 
 //Route::get('/login/novo', 'App\Http\Controllers\LoginController@create');

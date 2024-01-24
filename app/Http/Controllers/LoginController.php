@@ -18,6 +18,9 @@ class LoginController extends Controller
         if ($request->get('erro') == 1) {
             $erro = 'Usuário e/ou senha inválidos';
         };
+        if ($request->get('erro') == 2) {
+            $erro = 'Necessário realizar login para ter acesso a pagina';
+        };
         return view('login', ['erro' => $erro]);
     }
 
@@ -52,7 +55,7 @@ class LoginController extends Controller
             $_SESSION['nome'] = $usuario->name;
             $_SESSION['email'] = $usuario->email;
 
-            return redirect()->route('');
+            return redirect()->route('app.diretor');
         } else {
             return redirect()->route('login', ['erro' => 1]);
         }

@@ -16,8 +16,15 @@
                 </div>
 
                 <div class="form-group">
-                    <input type="password" name="password" class="form-control" value="{{ old('password') }}"
-                        placeholder="Senha">
+                    <div class="input-group">
+                        <input type="password" name="password" class="form-control" value="{{ old('password') }}"
+                            placeholder="Senha" id="passwordInput">
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary" type="button" id="togglePassword">
+                                <i class="fa fa-eye-slash" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </div>
                     @error('password')
                         <span>{{ $message }}</span>
                     @enderror
@@ -31,8 +38,18 @@
             </form>
             {{ isset($erro) && $erro != '' ? $erro : '' }}
 
-
-
         </div>
     </div>
+
+    <script>
+        const passwordInput = document.getElementById('passwordInput');
+        const togglePassword = document.getElementById('togglePassword');
+
+        togglePassword.addEventListener('click', function () {
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+            this.innerHTML = type === 'password' ? '<i class="fa fa-eye-slash" aria-hidden="true"></i>' : '<i class="fa fa-eye" aria-hidden="true"></i>';
+        });
+
+    </script>
 @endsection

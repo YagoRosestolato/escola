@@ -31,8 +31,10 @@
             </table>
 
             <div class="text-center">
-                <a href="/" class="btn btn-primary mb-2">Início</a><br>
+                <a href="/diretor" class="btn btn-primary mb-2">Voltar</a><br>
                 <a href="/produtos/novo" class="btn btn-success mb-2">Cadastrar Novo Produto</a><br>
+
+                
             </div>
         </div>
     </div>

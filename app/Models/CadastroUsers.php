@@ -19,6 +19,8 @@ class CadastroUsers extends Model
     protected $fillable = [
         'name',
         'email',
+        'lastName',
+        'role',
         'password',
     ];
 
@@ -39,6 +41,6 @@ class CadastroUsers extends Model
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
-        'password' => 'hashed',
+        
     ];
 }

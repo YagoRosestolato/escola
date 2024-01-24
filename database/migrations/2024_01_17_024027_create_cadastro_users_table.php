@@ -17,7 +17,10 @@ return new class extends Migration
             $table->string('lastName');
             $table->string('email');
             $table->string('password');
+            $table->enum('role', ['diretor', 'fornecedor']);
             $table->timestamps();
+
+            
         });
         
     }

@@ -11,31 +11,16 @@ class AutenticacaoMiddleware
     /**
      * Handle an incoming request.
      *
-     * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
+     * @param  \Closure(\Illuminate\Http\Request) $next
      */
-    public function handle(Request $request, Closure $next, $metodo_autenticacao, $perfil): Response
+    public function handle( $request, Closure $next, $metodo_autenticacao, $perfil)
     {
-        echo $metodo_autenticacao. '-' . $perfil;
+        session_start();
 
-        if($metodo_autenticacao == 'padrao'){
-            echo 'Verificar o usuário e senha no banco de dados'.$perfil.'<br>';
-        }
-
-        if($metodo_autenticacao == 'ldap'){
-            echo 'Verificar o usuario e senha no ad'.$perfil.'<br>';
-        }
-
-
-
-
-
-        if(false){
+        if (isset($_SESSION['email']) && $_SESSION['email'] != '') {
             return $next($request);
         }else {
-            return Response ('Acesso negado! Rota precisa de autenticação');
+            return redirect()->route('login', ['erro' => 2]);
         }
-        
-        
-        
     }
 }

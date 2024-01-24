@@ -32,11 +32,14 @@
                     @enderror
                 </div>
                 <div class="form-group">
-                    <label for="cargo">Cargo:</label>
-                    <select class="form-control" id="cargo" name="cargo">
+                    <label for="role">Cargo:</label>
+                    <select class="form-control" id="role" name="role">
                         <option value="diretor">Diretor</option>
                         <option value="fornecedor">Fornecedor</option>
                     </select>
+                    @error('role')
+                        <span>{{ $message }}</span>
+                    @enderror
                 </div>
                 
                 <button type="submit" class="btn btn-primary">Cadastrar</button>
