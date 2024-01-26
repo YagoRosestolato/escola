@@ -83,6 +83,8 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'log.acesso' => \App\Http\Middleware\LogAcessoMiddlweare::class,
         'autenticacao' => \App\Http\Middleware\AutenticacaoMiddleware::class,
+        'diretor' => \App\Http\Middleware\DiretorMiddleware::class,
+        'fornecedor' => \App\Http\Middleware\FornecedorMiddleware::class,
     ];
     
 }

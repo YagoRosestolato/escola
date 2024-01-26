@@ -1,17 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sua Aplicação</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-</head>
-<body>
-    
-    <h1>fornecedor</h1>
-    <div class="container mt-4">
-        @yield('content')
-    </div>
+@extends('welcome')
 
-</body>
-</html>
+@section('body')
+<div class="container mt-4">
+    <div class="jumbotron">
+        <h1 class="display-4">Área do Fornecedor</h1>
+        <p class="lead">Bem-vindo à EscolaShop, a plataforma exclusiva para compra de produtos para sua escola.</p>
+        <hr class="my-4">
+        <a class="btn btn-primary btn-lg" href="/produtos" role="button">Itens a venda</a>
+        <a class="btn btn-secondary btn-lg" href="/produtos" role="button">Gerenciar Propostas</a>
+        <a class="btn btn-secondary btn-lg" href="/fornecedor/novo" role="button">Cadastre sua empresa</a>
+        
+
+    </div>
+    
+</div>
+@endsection

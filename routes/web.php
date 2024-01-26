@@ -21,9 +21,22 @@ Route::get('/login/{erro?}', 'App\Http\Controllers\LoginController@index')->name
 Route::post('/login', 'App\Http\Controllers\LoginController@autenticar')->name('login');
 
 
-Route::middleware('autenticacao:padrao, diretor')->get('/diretor', 'App\Http\Controllers\DiretorController@index')->name('app.diretor');
-Route::middleware('autenticacao:padrao, fornecedor')->get('/fornecedor', 'App\Http\Controllers\FornecedorController@index')->name('app.fornecedor');
-Route::middleware('autenticacao:padrao')->get('/sair', 'App\Http\Controllers\LoginController@logout')->name('app.sair');
+
+Route::middleware('autenticacao:padrao, home')
+    ->get('/home', 'App\Http\Controllers\HomeController@index')
+    ->name('app.home');
+Route::middleware('autenticacao:padrao, diretor')
+    ->get('/diretor', 'App\Http\Controllers\DiretorController@index')
+    ->name('app.diretor');
+Route::middleware('autenticacao:padrao, fornecedor')
+    ->get('/fornecedor', 'App\Http\Controllers\FornecedorController@index')
+    ->name('app.fornecedor');
+Route::middleware('autenticacao:padrao')->get('/sair', 'App\Http\Controllers\LoginController@logout')
+    ->name('app.sair');
+
+// Route::middleware(['autenticacao:padrao, home', 'diretor'])->get('/diretor', 'App\Http\Controllers\HomeController@index')->name('app.home');
+
+// Route::middleware(['autenticacao:padrao, fornecedor', 'fornecedor'])->get('/fornecedor', 'App\Http\Controllers\FornecedorController@index')->name('app.fornecedor');
 
 
 //Route::get('/login/novo', 'App\Http\Controllers\LoginController@create');

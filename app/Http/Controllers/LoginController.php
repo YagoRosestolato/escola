@@ -55,7 +55,7 @@ class LoginController extends Controller
             $_SESSION['nome'] = $usuario->name;
             $_SESSION['email'] = $usuario->email;
 
-            return redirect()->route('app.diretor');
+            return redirect()->route('app.home');
         } else {
             return redirect()->route('login', ['erro' => 1]);
         }
@@ -69,30 +69,7 @@ class LoginController extends Controller
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    // public function store(Request $request)
-    // {
-    //     $request->validate([
-    //         'email' => 'required|email',
-    //         'password' => 'required',
-    //     ], [
-    //         'email.required' => 'Este campo é obrigatório',
-    //         'email.email' => 'O email deve ser um email válido',
-    //         'password.required' => 'Este campo é obrigatório',
-    //     ]);
-
-    //     $credenciais = $request->only('email', 'password');
-    //     $autenticacao = Auth::attempt($credenciais);
-
-    //     if (!$autenticacao) {
-    //         return redirect()->route('login.index')->withErrors(['error'=>'Email ou senha inválidos.']);
-    //     } 
-
-    //     return redirect()->route('login.index')->with('success', 'Login efetuado com sucesso!');
-
-    // }
+   
 
     /**
      * Display the specified resource.
@@ -121,8 +98,8 @@ class LoginController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function sair()
     {
-        //
+        echo 'sair';
     }
 }
