@@ -8,7 +8,7 @@
 
     <div class="container mt-4">
         <div class="row justify-content-center">
-            <!-- Card para a Tela de Diretor -->
+
             <div class="col-md-4 mb-4 d-flex flex-column">
                 <div class="card flex-fill">
                     <div class="card-body">
@@ -21,7 +21,7 @@
                 </div>
             </div>
 
-            <!-- Card para a Tela de Fornecedor -->
+
             <div class="col-md-4 mb-4 d-flex flex-column">
                 <div class="card flex-fill">
                     <div class="card-body">

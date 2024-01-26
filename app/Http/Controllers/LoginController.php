@@ -99,7 +99,8 @@ class LoginController extends Controller
      * Remove the specified resource from storage.
      */
     public function sair()
-    {
-        echo 'sair';
-    }
+{
+    session_destroy();
+    return redirect()->route('principal'); 
+}
 }

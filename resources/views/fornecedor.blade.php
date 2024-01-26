@@ -7,7 +7,7 @@
         <p class="lead">Bem-vindo à EscolaShop, a plataforma exclusiva para compra de produtos para sua escola.</p>
         <hr class="my-4">
         <a class="btn btn-primary btn-lg" href="/produtos" role="button">Itens a venda</a>
-        <a class="btn btn-secondary btn-lg" href="/produtos" role="button">Gerenciar Propostas</a>
+        <a class="btn btn-secondary btn-lg" href="/produtos/novo" role="button">Adicionar Produtos</a>
         <a class="btn btn-secondary btn-lg" href="/fornecedor/novo" role="button">Cadastre sua empresa</a>
         
 

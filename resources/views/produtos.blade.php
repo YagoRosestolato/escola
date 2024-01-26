@@ -20,7 +20,7 @@
                             <td>{{ $produto->id }}</td>
                             <td>{{ $produto->name }}</td>
                             <td>{{ $produto->description }}</td>
-                            <td>{{ $produto->price }}</td>
+                            <td>R$ {{ number_format($produto->price, 2, ',', '.') }}</td>
                             <td>
                                 <a href="/produtos/editar/{{ $produto->id }}" class="btn btn-primary">Editar</a>
                                 <a href="/produtos/apagar/{{ $produto->id }}" class="btn btn-danger">Excluir</a>
@@ -33,8 +33,6 @@
             <div class="text-center">
                 <a href="/diretor" class="btn btn-primary mb-2">Voltar</a><br>
                 <a href="/produtos/novo" class="btn btn-success mb-2">Cadastrar Novo Produto</a><br>
-
-                
             </div>
         </div>
     </div>

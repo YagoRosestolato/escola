@@ -22,7 +22,7 @@
         <p>Aqui você pode gerenciar produtos e fornecedores da escola.</p>
         <a class="btn btn-primary btn-lg" href="/produtos" role="button">Adicionar Produtos</a>
         <a class="btn btn-secondary btn-lg" href="/produtos" role="button">Listar Produtos</a>
-        <a class="btn btn-secondary btn-lg" href="/fornecedor" role="button">Gerenciar Fornecedores</a>
+        <a class="btn btn-secondary btn-lg" href="/lista-fornecedor" role="button">Gerenciar Fornecedores</a>
 
     </div>
     <h5 class="card-title">Lista de Produtos</h5>
@@ -42,7 +42,7 @@
                     <td>{{ $produto->id }}</td>
                     <td>{{ $produto->name }}</td>
                     <td>{{ $produto->description }}</td>
-                    <td>{{ $produto->price }}</td>
+                    <td>R$ {{ number_format($produto->price, 2, ',', '.') }}</td>
                     
                 </tr>
             @endforeach
